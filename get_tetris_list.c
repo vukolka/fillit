@@ -30,9 +30,10 @@ static char	*get_current_tetris(int fd)
 }
 
 /* Function gives each tetris an index */
-char 	validate_tetris(char *tetris)
+char 	*validate_tetris(char const *tetris, char c)
 {
-	
+	char 	*res;
+	int 	i;
 }
 
 t_list		*get_tetris_list(char const *filename)
@@ -40,22 +41,24 @@ t_list		*get_tetris_list(char const *filename)
 	t_list  *tetris_list;
 	char	*curr_tetris;
 	int		fd;
+	char 	c;
 
+	c = 'A';
 	tetris_list = NULL;
 	/*actually I should not return null here, 
 	instead I should print out the mistake and exit!!!!*/
 	if (!(fd = open(filename, O_RDONLY))) 
 		return (NULL);
 	while ((curr_tetris = get_current_tetris(fd)) != NULL)
-	{
 		if (curr_tetris)
 		{
-			ft_lstadd(&tetris_list, ft_lstnew(curr_tetris, ft_strlen(curr_tetris)));
+			ft_lstadd(&tetris_list, ft_lstnew(validate_tetris(curr_tetris, c), 4));
 			read(fd, curr_tetris, 1);
 			free(curr_tetris);
+			c++;
 		}
-	}
-	ft_lstiter(tetris_list, &printlist);
 	close(fd);
 	return (tetris_list);
 }
+
+
