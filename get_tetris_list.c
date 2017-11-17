@@ -29,13 +29,6 @@ static char	*get_current_tetris(int fd)
 	return (NULL);
 }
 
-/* Function gives each tetris an index */
-char 	*validate_tetris(char const *tetris, char c)
-{
-	char 	*res;
-	int 	i;
-}
-
 t_list		*get_tetris_list(char const *filename)
 {
 	t_list  *tetris_list;
@@ -52,11 +45,12 @@ t_list		*get_tetris_list(char const *filename)
 	while ((curr_tetris = get_current_tetris(fd)) != NULL)
 		if (curr_tetris)
 		{
-			ft_lstadd(&tetris_list, ft_lstnew(validate_tetris(curr_tetris, c), 4));
+			ft_lstadd(&tetris_list, ft_lstnew(validate_tetris(curr_tetris), c));
 			read(fd, curr_tetris, 1);
 			free(curr_tetris);
 			c++;
 		}
+	printlist(tetris_list);
 	close(fd);
 	return (tetris_list);
 }

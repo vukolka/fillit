@@ -10,6 +10,7 @@
 # include "libft.h"
 # define BUFFSIZE 21
 
+int 	validate_tetris(char const *tetris);
 t_list	*get_tetris_list(char const *filename);
 void	file_input_error();
 
