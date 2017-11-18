@@ -1,5 +1,6 @@
 
 #include "fillit.h"
+#include "libft.h"
 
 /*This function takes a file and reads first BUFFSIZE-1 chars
 and returns a pointer with the result of reading

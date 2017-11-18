@@ -11,8 +11,10 @@
 /* ************************************************************************** */
 
 #include "fillit.h"
+#include "libft.h"
 
 void	file_input_error()
 {
-	ft_putstr("file error");
+	ft_putendl("error");
+	exit(1);
 }

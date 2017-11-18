@@ -8,8 +8,8 @@
 # include <unistd.h>
 # include <stdio.h>
 # include "libft.h"
-# define BUFFSIZE 22
-# define bool int
+# define BUFFSIZE 21
+# define BOOL int
 # define TRUE 1 
 # define FALSE 0 
 
@@ -19,8 +19,9 @@
 */
 
 char	*get_input_data(int fd);
-void	error(int bool);
-void 	input_validation(int fd);
+void	file_input_error();
+void 	input_validation(char* filename);
+int 	is_tetrimino(char *matrix);
 
 /* end of input validation */
 
