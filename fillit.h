@@ -18,6 +18,7 @@
 	Prints out errors if found	 
 */
 
+int		*get_tetrimono_array(char *filename);
 char	*get_input_data(int fd);
 void	file_input_error();
 void 	input_validation(char* filename);
