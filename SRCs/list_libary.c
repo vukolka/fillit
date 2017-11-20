@@ -1,4 +1,5 @@
 #include "fillit.h"
+#include "libft.h"
 
 tetrimino	*new_tetrimino(char a, int id)
 {
@@ -6,9 +7,9 @@ tetrimino	*new_tetrimino(char a, int id)
 
 	if(!(res = (tetrimino*)malloc(sizeof(tetrimino))))
 		return (NULL);
-	tetrimino->id = id;
-	tetrimino->name = name;
-	tetrimino->next = NULL;
+	res->id = id;
+	res->name = a;
+	res->next = NULL;
 	return (res);
 }
 
@@ -25,4 +26,14 @@ void		push_end_tetrimino(tetrimino **list, char a, int id)
 	while (temp->next != NULL)
 		temp = temp->next;
 	temp->next = new_tetrimino(a, id);
+}
+
+void		print_list(tetrimino *list)
+{
+	while(list)
+	{
+		printf("%c ", list->name);
+		printf("%d\n", list->id);
+		list = list->next;
+	}
 }
