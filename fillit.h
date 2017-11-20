@@ -13,16 +13,25 @@
 # define TRUE 1 
 # define FALSE 0 
 
+typedef	struct			newlist
+{
+	char				name;
+	int					id;
+	struct newlist		*next;
+}						tetrimino;
+
+tetrimino	*new_tetrimino(char a, int id);
+void		push_end_tetrimino(tetrimino **list, char a, int id);
 /*	
 	Functions for input validation.
 	Prints out errors if found	 
 */
 
-int		*get_tetrimono_array(char *filename);
-char	*get_input_data(int fd);
-void	file_input_error();
-void 	input_validation(char* filename);
-int 	is_tetrimino(char *matrix);
+tetrimino	*get_tetrimino_list(char *filename);
+char		*get_input_data(int fd);
+void		file_input_error();
+void	 	input_validation(char* filename);
+int 		is_tetrimino(char *matrix);
 
 /* end of input validation */
 

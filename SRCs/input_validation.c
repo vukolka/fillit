@@ -22,7 +22,7 @@ void 	input_validation(char* filename)
 
 	buffer = ft_strnew(BUFFSIZE);
 	fd = open(filename, O_RDONLY);
-	while(bytes_red = read(fd, buffer, BUFFSIZE - 1))
+	while((bytes_red = read(fd, buffer, BUFFSIZE - 1)))
 	{
 		flag = FALSE;
 		if (bytes_red < BUFFSIZE - 1)
@@ -36,7 +36,7 @@ void 	input_validation(char* filename)
 			printf("isnt a is_tetrimino\n");
 			file_input_error();
 		}
-		if (bytes_red = read(fd, buffer, 1))
+		if ((bytes_red = read(fd, buffer, 1)))
 		{
 			if (buffer[0] != '\n')
 				file_input_error();

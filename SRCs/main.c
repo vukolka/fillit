@@ -3,12 +3,9 @@
 
 int		main(int argc, char *argv[])
 {
-	int *res;
-	char a = 'A';
+	tetrimino *res;
 
-	res = get_tetrimono_array(argv[1]);
-	while (*res != 0)
-		printf("%c %d\n",a++ ,*res++);
+	res = get_tetrimino_list(argv[1]);
 	input_validation(argv[1]);
 	
 	return (0);

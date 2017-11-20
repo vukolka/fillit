@@ -167,17 +167,17 @@ int 	identify_tetrimino(int *indexes)
 	int res;
 
 	res = 0;
-	if (res = is_stick(indexes))
+	if ((res = is_stick(indexes)))
 		return (res);
-	if (res = is_right_side_stick(indexes))
+	if ((res = is_right_side_stick(indexes)))
 		return (res);
-	if (res = is_left_side_stick(indexes))
+	if ((res = is_left_side_stick(indexes)))
 		return (res);
-	if (res = is_weird_shit(indexes))
+	if ((res = is_weird_shit(indexes)))
 		return (res);
-	if (res = is_square(indexes))
+	if ((res = is_square(indexes)))
 		return (res);
-	if (res = is_lego(indexes))
+	if ((res = is_lego(indexes)))
 		return (res);
 	return (res);
 }
