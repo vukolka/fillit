@@ -6,7 +6,7 @@ int		main(int argc, char *argv[])
 	tetrimino *res;
 
 	res = get_tetrimino_list(argv[1]);
-	print_list(res);
+	printf("%s\n", generate_matrix(5));
 	input_validation(argv[1]);
 	
 	return (0);

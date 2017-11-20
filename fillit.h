@@ -20,6 +20,7 @@ typedef	struct			newlist
 	struct newlist		*next;
 }						tetrimino;
 
+char		*generate_matrix(int size);
 void		print_list(tetrimino *list);
 tetrimino	*new_tetrimino(char a, int id);
 void		push_end_tetrimino(tetrimino **list, char a, int id);
