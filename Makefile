@@ -10,8 +10,8 @@ libft: $(BINARIES)
 	ar rcs libft.a $(BINARIES)
 	ranlib libft.a
 $(NAME): libft
-	gcc -c $(SOURCE) -I.
-	gcc -o $(NAME) *.o libft.a
+	gcc -c -g $(SOURCE) -I.
+	gcc -g -o $(NAME) *.o libft.a
 clean:
 	rm -f *.o
 	rm -f libft/*.o

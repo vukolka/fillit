@@ -1,0 +1,18 @@
+{
+        "version": "0.2.0",
+        "configurations": [
+            
+        {
+            "name": "fillit",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "/Users/mvukolov/Documents/fillit/fillit",
+            "args": ["scetch"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceRoot}",
+            "environment": [],
+            "externalConsole": true,
+            "MIMode": "lldb"
+        }
+        ]
+    }
