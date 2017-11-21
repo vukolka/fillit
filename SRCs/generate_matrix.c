@@ -15,12 +15,15 @@
 
 char	*generate_matrix(int size)
 {
-	int i = 0;
+	int i;
+	int j;
 	int matrix_size = (size * size) + size;
 	char *res = ft_strnew(matrix_size + 1);
+
+	i = 0;
 	while (i < matrix_size)
 	{
-		if (i && i % (size + 1) == 0)
+		if (i && (i + 1) % (size + 1) == 0)
 			res[i] = '\n';
 		else
 			res[i] = '.';

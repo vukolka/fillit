@@ -13,25 +13,103 @@
 #include "fillit.h"
 #include "libft.h"
 
-int		can_place(char *matrix, int id, char c)
+int		get_line_size(char *matrix)
 {
-	int 	*dotarray;
-	int 	i;
-	int		count;
+	int i;
 
 	i = 0;
-	count = 0;
-	while (matrix[i])
-	{
-		if (matrix[i] == '.')
-			dotarray[count++] = i;
+	while (*matrix++ != '\n')
 		i++;
-	}
-	i = 0;
-	while (dotarray[i+3])
+	return (i);
+}
+
+int 	can_place_square(char *matrix, char c, int i)
+{
+	int size = get_line_size(matrix) + 1;
+
+	if (matrix[i] != '.')
+		return (0);
+	if (matrix[i] == '.' && matrix[i + 1] == '.'
+		&& matrix[i + size] == '.' 
+		&& matrix[i + size + 1] == '.')
 	{
-		if (is_tetrimino(dotarray) == id)
-			return (1);
-		i++;
+		matrix[i] = c;
+		matrix[i + 1] = c;
+		matrix[i + size] = c;
+		matrix[i + size + 1] = c;
+		return (1);
 	}
+	return (0);
+}
+// int 	can_place_weird_shit(*matrix, char c, int i)
+int 	can_place_stick(char *matrix, char c, int i)
+{
+	if (matrix[i] != '.')
+		return (0);
+	int size = get_line_size(matrix) + 1;
+	if (matrix[i] == matrix[i+1]
+		&& matrix[i+1] == matrix[i + 2]
+		&& matrix[i+2] == matrix[i + 3])
+	{
+		matrix[i] = c;
+		matrix[i+1] = c;
+		matrix[i+2] = c;
+		matrix[i+3] = c;
+		return (2);
+	}
+	if (matrix[i] == matrix[i + size]
+		&& matrix[i + size] == matrix[i + size*2]
+		&& matrix[i+size*2] == matrix[i + size*3])
+	{
+		matrix[i] = c;
+		matrix[i+size] = c;
+		matrix[i+size*2] = c;
+		matrix[i+size*3] = c;
+		return (3);
+	}
+	return (0);
+}
+int 	can_place_side_stick(char *matrix, char c, int i)
+{
+	if (matrix[i] != '.')
+		return (0);
+	int size = get_line_size(matrix) + 1;
+	if (matrix[i] == matrix[i + size]
+		&& matrix[i + size] == matrix[i + size*2]
+		&& matrix[i+size*2] == matrix[i + size*3])
+	{
+		matrix[i] = c;
+		matrix[i+size] = c;
+		matrix[i+size*2] = c;
+		matrix[i+size*3] = c;
+		return (3);
+	}
+	return (0);
+}
+// int 	can_place_side_stick(*matrix, char c, int i)
+// int 	can_place_lego(*matrix, char c, int i)
+
+int		can_place(char *matrix, tetrimino *current, int i)
+{
+	int res;
+
+	if (current->id == 1)
+	{
+		if (res = can_place_square(matrix, current->name, i))
+			return (res);
+		return (0);
+	}
+	if (current->id == 2)
+	{
+		if (res = can_place_stick(matrix, current->name, i))
+			return (res);
+		return (0);
+	}
+	if (current->id == 3)
+	{
+		if (res = can_place_side_stick(matrix, current->name, i))
+			return (res);
+		return (0);
+	}
+	return (0);
 }

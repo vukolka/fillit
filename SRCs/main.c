@@ -4,10 +4,17 @@
 int		main(int argc, char *argv[])
 {
 	tetrimino *res;
-
+	int n = 8;
 	res = get_tetrimino_list(argv[1]);
-	printf("%s\n", generate_matrix(5));
-	input_validation(argv[1]);
+	print_list(res);
+	char *b;
+
+	char *a = generate_matrix(n);
+	b = recursion(a, res);
+	n++;
+	free(a);
+	printf("res\n%s\n", b);
+	// input_validation(argv[1]);
 	
 	return (0);
 }
