@@ -75,6 +75,26 @@ int 	can_place_side_stick(char *matrix, char c, int i)
 	}
 	return (0);
 }
+
+//id == 9
+int 	can_place_lu_stick(char *matrix, char c, int i)
+{
+	int size = get_line_size(matrix) + 1;
+	if (matrix[i] != '.' || i < size)
+		return (0);
+	if (matrix[i] == matrix[i+1]
+		&& matrix[i+1] == matrix[i + 2]
+		&& matrix[i] == matrix[i + size])
+	{
+		matrix[i] = c;
+		matrix[i+1] = c;
+		matrix[i+2] = c;
+		matrix[i + size] = c;
+		return (9);
+	}
+	return (0);
+}
+
 int 	can_place_l_stick(char *matrix, char c, int i)
 {
 	int size = get_line_size(matrix) + 1;
@@ -125,6 +145,13 @@ int		can_place(char *matrix, tetrimino *current, int i)
 	if (current->id == 8)
 	{
 		if (res = can_place_l_stick(matrix, current->name, i))
+			return (res);
+		return (0);
+	}
+
+	if (current->id == 9)
+	{
+		if (res = can_place_lu_stick(matrix, current->name, i))
 			return (res);
 		return (0);
 	}
