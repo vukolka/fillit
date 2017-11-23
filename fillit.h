@@ -21,7 +21,17 @@ typedef	struct			newlist
 }						tetrimino;
 
 
-char	*recursion(char *matrix, tetrimino *list);
+// fillit libary
+
+int     *malloc_tetrimino_array(int a, int b, int c, int d);
+int		get_line_size(char *matrix);
+void    modify_matrix(char *matrix, int *a, char c);
+int     compare(char *a, int *b);
+int     *get_tetrimino_array(int id, int line_size, int index);
+
+//main functions
+
+char		*recursion(char *matrix, tetrimino *list);
 char		*generate_matrix(int size);
 void		print_list(tetrimino *list);
 tetrimino	*new_tetrimino(char a, int id);
@@ -30,7 +40,7 @@ void		push_end_tetrimino(tetrimino **list, char a, int id);
 	Functions for input validation.
 	Prints out errors if found	 
 */
-int		can_place(char *matrix, tetrimino *current, int i);
+int			can_place_2(char *matrix, tetrimino *current, int i);
 
 
 tetrimino	*get_tetrimino_list(char *filename);

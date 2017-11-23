@@ -80,7 +80,7 @@ int 	can_place_side_stick(char *matrix, char c, int i)
 int 	can_place_lu_stick(char *matrix, char c, int i)
 {
 	int size = get_line_size(matrix) + 1;
-	if (matrix[i] != '.' || i < size)
+	if (matrix[i] != '.')
 		return (0);
 	if (matrix[i] == matrix[i+1]
 		&& matrix[i+1] == matrix[i + 2]
@@ -91,6 +91,96 @@ int 	can_place_lu_stick(char *matrix, char c, int i)
 		matrix[i+2] = c;
 		matrix[i + size] = c;
 		return (9);
+	}
+	return (0);
+}
+
+int 	can_place_ju_stick(char *matrix, char c, int i)
+{
+	int size = get_line_size(matrix) + 1;
+	if (matrix[i] != '.' || i < size )
+		return (0);
+	if (matrix[i] == matrix[i+1]
+		&& matrix[i+1] == matrix[i + 2]
+		&& matrix[i] == matrix[i - size])
+	{
+		matrix[i] = c;
+		matrix[i+1] = c;
+		matrix[i+2] = c;
+		matrix[i - size] = c;
+		return (5);
+	}
+	return (0);
+}
+
+int 	can_place_lr_stick(char *matrix, char c, int i)
+{
+	int size = get_line_size(matrix) + 1;
+	if (matrix[i] != '.')
+		return (0);
+	if (matrix[i] == matrix[i+size]
+		&& matrix[i+size] == matrix[i + (2*size)]
+		&& matrix[i + (2*size)] == matrix[(2*size) + 1 + i])
+	{
+		matrix[i+size] = c;
+		matrix[i] = c;
+		matrix[i+ (2*size)] = c;
+		matrix[i + 1 + (size*2)] = c;
+		return (10);
+	}
+	return (0);
+}
+
+int 	can_place_jr_stick(char *matrix, char c, int i)
+{
+	int size = get_line_size(matrix) + 1;
+	if (matrix[i] != '.')
+		return (0);
+	if (matrix[i] == matrix[i+1]
+		&& matrix[i] == matrix[i + (size)]
+		&& matrix[i + size] == matrix[(2*size) + i])
+	{
+		matrix[i+size] = c;
+		matrix[i] = c;
+		matrix[i+ (2*size)] = c;
+		matrix[i + 1 + (size*2)] = c;
+		return (7);
+	}
+	return (0);
+}
+
+int 	can_place_ll_stick(char *matrix, char c, int i)
+{
+	int size = get_line_size(matrix) + 1;
+	if (matrix[i] != '.')
+		return (0);
+	if (matrix[i] == matrix[i+1]
+		&& matrix[i] == matrix[i + (size) + 1]
+		&& matrix[i + size + 1] == matrix[(2*size) + i + 1])
+	{
+		matrix[i+size] = c;
+		matrix[i] = c;
+		matrix[i+ (2*size)] = c;
+		matrix[i + 1 + (size*2)] = c;
+		return (11);
+	}
+	return (0);
+}
+
+int 	can_place_jl_stick(char *matrix, char c, int i)
+{
+	int size = get_line_size(matrix) + 1;
+	if (matrix[i] != '.')
+		return (0);
+	if (matrix[i] == matrix[i+size]
+		&& matrix[i+size] == matrix[i + (2*size)]
+		&& matrix[i + (2*size)] == matrix[(2*size) - 1 + i])
+	{
+		matrix[i+size] = c;
+		matrix[i] = c;
+		matrix[i+ (2*size)] = c;
+		matrix[i - 1 + (size*2)] = c;
+		return (6);
 	}
 	return (0);
 }
@@ -115,9 +205,39 @@ int 	can_place_l_stick(char *matrix, char c, int i)
 
 int 	can_place_j_stick(char *matrix, char c, int i)
 {
-
+	int size = get_line_size(matrix) + 1;
+	if (matrix[i] != '.' || i < size)
+		return (0);
+	if (matrix[i] == matrix[i+1]
+		&& matrix[i+1] == matrix[i + 2]
+		&& matrix[i+2] == matrix[i + 2 + size])
+	{
+		matrix[i] = c;
+		matrix[i+1] = c;
+		matrix[i+2] = c;
+		matrix[i + 2 + size] = c;
+		return (4);
+	}
+	return (0);
 }
-// int 	can_place_lego(*matrix, char c, int i)
+
+int 	can_place_jego(char *matrix, char c, int i)
+{
+	int size = get_line_size(matrix) + 1;
+	if (matrix[i] != '.')
+		return (0);
+	if (matrix[i] == matrix[i+size]
+		&& matrix[i+size] == matrix[i + size - 1]
+		&& matrix[i + size - 1] == matrix[(2*size)+ i])
+	{
+		matrix[i+size] = c;
+		matrix[i] = c;
+		matrix[i+ (2*size)] = c;
+		matrix[i - 1 + (size*2)] = c;
+		return (12);
+	}
+	return (0);
+}
 
 int		can_place(char *matrix, tetrimino *current, int i)
 {
@@ -142,6 +262,34 @@ int		can_place(char *matrix, tetrimino *current, int i)
 		return (0);
 	}
 
+	if (current->id == 4)
+	{
+		if (res = can_place_j_stick(matrix, current->name, i))
+			return (res);
+		return (0);
+	}
+
+	if (current->id == 5)
+	{
+		if (res = can_place_j_stick(matrix, current->name, i))
+			return (res);
+		return (0);
+	}
+
+	if (current->id == 6)
+	{
+		if (res = can_place_jl_stick(matrix, current->name, i))
+			return (res);
+		return (0);
+	}
+
+	if (current->id == 7)
+	{
+		if (res = can_place_jr_stick(matrix, current->name, i))
+			return (res);
+		return (0);
+	}
+
 	if (current->id == 8)
 	{
 		if (res = can_place_l_stick(matrix, current->name, i))
@@ -156,5 +304,20 @@ int		can_place(char *matrix, tetrimino *current, int i)
 		return (0);
 	}
 
+	if (current->id == 10)
+	{
+		if (res = can_place_lr_stick(matrix, current->name, i))
+			return (res);
+		return (0);
+	}
+
+	if (current->id == 11)
+	{
+		if (res = can_place_ll_stick(matrix, current->name, i))
+			return (res);
+		return (0);
+	}
+
+	
 	return (0);
 }
