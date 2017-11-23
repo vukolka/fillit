@@ -23,7 +23,7 @@ int		get_line_size(char *matrix)
 	i = 0;
 	while (*matrix++ != '\n')
 		i++;
-	return (i);
+	return (i + 1);
 }
 
 void    modify_matrix(char *matrix, int *a, char c)
@@ -34,11 +34,16 @@ void    modify_matrix(char *matrix, int *a, char c)
     matrix[a[3]] = c;
 }
 
-int     compare(char *a, int *b)
+int     compare(char *matrix, int *i)
 {
-    if (a[b[0]] != '.')
+    // printf("current status %c%c%c%c\n", matrix[i[0]], matrix[i[1]], matrix[i[2]], matrix[i[3]]);    
+    if (matrix[i[0]] != '.')
         return (0);
-    if (a[b[0]] == a[b[1]] == a[b[2]] == a[b[3]])
+    if (matrix[i[0]] == matrix[i[1]]
+        && matrix[i[1]] == matrix[i[2]]
+        && matrix[i[2]] == matrix[i[3]])
+    {
         return (1);
+    }
     return (0);
 }

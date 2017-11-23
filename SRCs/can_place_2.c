@@ -54,8 +54,11 @@ int     can_place_2(char *matrix, tetrimino *current, int i)
     int     line_size;
     int     *indexes;
 
-    indexes = get_tetrimino_array(current->id, line_size, i);
     line_size = get_line_size(matrix);
+    indexes = get_tetrimino_array(current->id, line_size, i);
+    // printf("i: %d\n", i);
+    if (indexes == NULL)
+        return (FALSE);        
     if (compare(matrix, indexes))
     {
             modify_matrix(matrix, indexes, current->name);

@@ -9,7 +9,7 @@ char	*recursion(char *matrix, tetrimino *current)
 	if (current == NULL)
 		return (matrix);
 	tempmatrix = ft_strdup(matrix);
-	printf("%s\n", tempmatrix);
+	// printf("%s\n", tempmatrix);
 	while (matrix[i])
 	{
 		if (matrix[i] == '.')
