@@ -32,6 +32,10 @@ typedef struct			s_newlist
 	struct s_newlist	*next;
 }						t_etrimino;
 
+char					*ft_strnew(size_t size);
+void					ft_putstr(char const *s);
+char					*ft_strdup(const char *s1);
+void					ft_putendl(char const *s);
 int						is_stick(int *a);
 int						is_square(int *a);
 int						is_weird_shit(int *a);
