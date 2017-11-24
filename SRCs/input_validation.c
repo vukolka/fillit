@@ -13,6 +13,32 @@
 #include "fillit.h"
 #include "libft.h"
 
+int		validate_form(char *buffer)
+{
+	int		slash_n;
+	int		i;
+
+	i = 0;
+	slash_n = 0;
+	while (*buffer)
+	{
+		if (*buffer != '.' && *buffer != '\n'
+			&& *buffer != '#')
+			file_input_error();
+		if (*buffer == '\n')
+		{
+			if (i != 4 && i != 9 && i != 14 && i != 19)
+				file_input_error();
+			slash_n++;
+			if (slash_n > 4)
+				file_input_error();
+		}
+		i++;
+		buffer++;
+	}
+	return (TRUE);
+}
+
 void 	input_validation(char* filename)
 {
 	int fd;
@@ -25,17 +51,10 @@ void 	input_validation(char* filename)
 	while((bytes_red = read(fd, buffer, BUFFSIZE - 1)))
 	{
 		flag = FALSE;
-		if (bytes_red < BUFFSIZE - 1)
-		{
-			printf("shit in the end of the file\n");
+		if (bytes_red < BUFFSIZE - 1
+		|| is_tetrimino(buffer) == FALSE
+		|| validate_form(buffer) == FALSE)
 			file_input_error();
-		}
-		if (is_tetrimino(buffer) == FALSE)
-		{
-			printf("%s", buffer);
-			printf("isnt a is_tetrimino\n");
-			file_input_error();
-		}
 		if ((bytes_red = read(fd, buffer, 1)))
 		{
 			if (buffer[0] != '\n')

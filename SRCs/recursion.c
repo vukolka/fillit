@@ -3,13 +3,12 @@
 
 char	*recursion(char *matrix, tetrimino *current)
 {
-	int i = 0;
-	char *tempmatrix;
+	int		i = 0;
+	char	*tempmatrix;
 
 	if (current == NULL)
 		return (matrix);
 	tempmatrix = ft_strdup(matrix);
-	// printf("%s\n", tempmatrix);
 	while (matrix[i])
 	{
 		if (matrix[i] == '.')
@@ -18,7 +17,7 @@ char	*recursion(char *matrix, tetrimino *current)
 				if(*(tempmatrix = recursion(tempmatrix, current->next)) != '\0')
 					return (tempmatrix);
 			}
-		if (*tempmatrix != 0)
+		if (*tempmatrix != FALSE)
 			free(tempmatrix);
 		tempmatrix = ft_strdup(matrix);
 		i++;

@@ -31,6 +31,7 @@ int     *get_tetrimino_array(int id, int line_size, int index);
 
 //main functions
 
+void	    fillit(char *filename);
 char		*recursion(char *matrix, tetrimino *list);
 char		*generate_matrix(int size);
 void		print_list(tetrimino *list);

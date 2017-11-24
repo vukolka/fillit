@@ -36,14 +36,13 @@ void    modify_matrix(char *matrix, int *a, char c)
 
 int     compare(char *matrix, int *i)
 {
-    // printf("current status %c%c%c%c\n", matrix[i[0]], matrix[i[1]], matrix[i[2]], matrix[i[3]]);    
     if (matrix[i[0]] != '.')
         return (0);
     if (matrix[i[0]] == matrix[i[1]]
         && matrix[i[1]] == matrix[i[2]]
         && matrix[i[2]] == matrix[i[3]])
     {
-        return (1);
+        return (TRUE);
     }
-    return (0);
+    return (FALSE);
 }
