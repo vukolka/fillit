@@ -13,7 +13,7 @@
 #include "fillit.h"
 #include "libft.h"
 
-void	file_input_error()
+void	file_input_error(void)
 {
 	ft_putendl("error");
 	exit(1);

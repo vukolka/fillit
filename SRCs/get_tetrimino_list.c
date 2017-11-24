@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_tetrimino_list.c                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mvukolov <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/11/24 05:34:11 by mvukolov          #+#    #+#             */
+/*   Updated: 2017/11/24 05:34:12 by mvukolov         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <libft.h>
 #include <fillit.h>
 
-tetrimino	*get_tetrimino_list(char *filename)
+t_etrimino	*get_tetrimino_list(char *filename)
 {
-	int 		fd;
-	tetrimino	*res;
+	int			fd;
+	t_etrimino	*res;
 	int			bytes_read;
 	char		*buff;
 	char		a;

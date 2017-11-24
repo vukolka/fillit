@@ -39,16 +39,16 @@ int		validate_form(char *buffer)
 	return (TRUE);
 }
 
-void 	input_validation(char* filename)
+void	input_validation(char *filename)
 {
-	int fd;
-	int bytes_red;
-	char *buffer;
-	BOOL flag;
+	int		fd;
+	int		bytes_red;
+	char	*buffer;
+	BOOL	flag;
 
 	buffer = ft_strnew(BUFFSIZE);
 	fd = open(filename, O_RDONLY);
-	while((bytes_red = read(fd, buffer, BUFFSIZE - 1)))
+	while ((bytes_red = read(fd, buffer, BUFFSIZE - 1)))
 	{
 		flag = FALSE;
 		if (bytes_red < BUFFSIZE - 1

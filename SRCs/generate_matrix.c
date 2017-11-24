@@ -15,11 +15,13 @@
 
 char	*generate_matrix(int size)
 {
-	int i;
-	int j;
-	int matrix_size = (size * size) + size;
-	char *res = ft_strnew(matrix_size + 1);
+	int		i;
+	int		j;
+	int		matrix_size;
+	char	*res;
 
+	matrix_size = (size * size) + size;
+	res = ft_strnew(matrix_size + 1);
 	i = 0;
 	while (i < matrix_size)
 	{

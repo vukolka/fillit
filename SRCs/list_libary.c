@@ -1,11 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   list_libary.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mvukolov <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/11/24 04:49:43 by mvukolov          #+#    #+#             */
+/*   Updated: 2017/11/24 04:49:44 by mvukolov         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fillit.h"
 #include "libft.h"
 
-tetrimino	*new_tetrimino(char a, int id)
+t_etrimino	*new_tetrimino(char a, int id)
 {
-	tetrimino *res;
+	t_etrimino *res;
 
-	if(!(res = (tetrimino*)malloc(sizeof(tetrimino))))
+	if (!(res = (t_etrimino*)malloc(sizeof(t_etrimino))))
 		return (NULL);
 	res->id = id;
 	res->name = a;
@@ -13,9 +25,9 @@ tetrimino	*new_tetrimino(char a, int id)
 	return (res);
 }
 
-void		push_end_tetrimino(tetrimino **list, char a, int id)
+void		push_end_tetrimino(t_etrimino **list, char a, int id)
 {
-	tetrimino *temp;
+	t_etrimino *temp;
 
 	temp = *list;
 	if (*list == NULL)
@@ -26,14 +38,4 @@ void		push_end_tetrimino(tetrimino **list, char a, int id)
 	while (temp->next != NULL)
 		temp = temp->next;
 	temp->next = new_tetrimino(a, id);
-}
-
-void		print_list(tetrimino *list)
-{
-	while(list)
-	{
-		printf("%c ", list->name);
-		printf("%d\n", list->id);
-		list = list->next;
-	}
 }
