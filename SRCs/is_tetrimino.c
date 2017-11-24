@@ -204,7 +204,6 @@ int 	is_tetrimino(char *matrix)
 	}
 	if (i < BUFFSIZE - 2 && i != 0)
 	{
-		printf("i: %d\ni is less then bufsize \n", i);
 		file_input_error();
 	}
 	return (identify_tetrimino(indexes));
