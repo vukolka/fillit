@@ -19,7 +19,6 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdio.h>
-# include "libft.h"
 # define BUFFSIZE 21
 # define BOOL int
 # define TRUE 1
@@ -32,6 +31,7 @@ typedef struct			s_newlist
 	struct s_newlist	*next;
 }						t_etrimino;
 
+size_t					ft_strlen(const char *s);
 int						count_tetrimino(t_etrimino *list);
 char					*ft_strnew(size_t size);
 void					ft_putstr(char const *s);
@@ -58,6 +58,5 @@ void					file_input_error();
 void					input_validation(char *filename);
 int						is_tetrimino(char *matrix);
 int						validate_tetris(char const *tetris);
-t_list					*get_tetris_list(char const *filename);
 void					file_input_error();
 #endif

@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "fillit.h"
-#include "libft.h"
 
 t_etrimino	*new_tetrimino(char a, int id)
 {

@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "fillit.h"
-#include "libft.h"
 
 char	*recursion(char *matrix, t_etrimino *current)
 {
