@@ -32,6 +32,7 @@ typedef struct			s_newlist
 	struct s_newlist	*next;
 }						t_etrimino;
 
+int						count_tetrimino(t_etrimino *list);
 char					*ft_strnew(size_t size);
 void					ft_putstr(char const *s);
 char					*ft_strdup(const char *s1);

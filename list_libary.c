@@ -39,3 +39,18 @@ void		push_end_tetrimino(t_etrimino **list, char a, int id)
 		temp = temp->next;
 	temp->next = new_tetrimino(a, id);
 }
+
+int			count_tetrimino(t_etrimino *list)
+{
+	int i;
+
+	i = 0;
+	while (list)
+	{
+		i++;
+		if (i > 26)
+			return (0);
+		list = list->next;
+	}
+	return (1);
+}

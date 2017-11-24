@@ -20,6 +20,8 @@ void	fillit(char *filename)
 	char		*matrix;
 
 	list = get_tetrimino_list(filename);
+	if (!count_tetrimino(list))
+		file_input_error();
 	n = 2;
 	while (TRUE)
 	{
