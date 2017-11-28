@@ -6,7 +6,7 @@
 /*   By: mvukolov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/20 12:02:20 by mvukolov          #+#    #+#             */
-/*   Updated: 2017/11/20 12:02:21 by mvukolov         ###   ########.fr       */
+/*   Updated: 2017/11/27 16:29:22 by mvukolov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 char	*generate_matrix(int size)
 {
 	int		i;
-	int		j;
 	int		matrix_size;
 	char	*res;
 
