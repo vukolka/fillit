@@ -4,7 +4,6 @@ SOURCE= fillit.c \
 		list_libary.c \
 		libftlibary.c \
 		libftlibary2.c \
-		list_libary.c \
 		recursion.c \
 		fillit_libary.c \
 		can_place_2.c \
@@ -15,13 +14,14 @@ SOURCE= fillit.c \
 		is_tetrimino2.c \
 		input_validation.c \
 		main.c
+OBJ = $(SOURCE:%.c=%.o)
 all: $(NAME)
 
 $(NAME):
 	gcc -c $(SOURCE) -I. $(FLAGS)
-	gcc -g -o $(NAME) *.o
+	gcc -g -o $(NAME) $(OBJ)
 clean:
-	rm -f *.o
+	rm -f $(OBJ)
 fclean: clean
 	rm -f $(NAME)
 re: fclean all
