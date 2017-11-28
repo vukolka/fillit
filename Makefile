@@ -18,7 +18,7 @@ SOURCE= fillit.c \
 all: $(NAME)
 
 $(NAME):
-	gcc -c $(SOURCE) -I.
+	gcc -c $(SOURCE) -I. $(FLAGS)
 	gcc -g -o $(NAME) *.o
 clean:
 	rm -f *.o
