@@ -1,5 +1,8 @@
 # fillit
-My implementation of 42's school fillit based on backtracking algorithm.
+
+Finds the smallest square to fit provided tetris pieces.
+Uses backtracking algorithm to reach the goal.
+
 
 ### Simple example
 ![](https://raw.githubusercontent.com/vukolka/fillit/master/gif_fillit.gif)
